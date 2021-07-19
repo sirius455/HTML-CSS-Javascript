@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09_입력</title>
+</head>
+<body>
+    
+    <h3># input태그를 이용해 사용자로부터 다양한 입력을 받을 수 있다</h3>
+
+    <input type="text">
+
+    <table border="2">
+        <tr>
+            <th>Type</th>
+            <th>입력란</th>
+            <th>설명</th>
+            <th>용도</th>
+        </tr>
+        <tr>
+            <td>type="text"</td>
+            <td><input type="text"></td>
+            <td>일반적인 텍스트를 입력받는 칸</td>
+            <td>아이디, 글 제목 등</td>
+        </tr>
+        <tr>
+            <td>type="password"</td>
+            <td><input type="password"></td>
+            <td>텍스트를 가려주는 입력 칸</td>
+            <td>비밀번호</td>
+        </tr>
+        <tr>
+            <td>type="radic"</td>
+            <td>
+               <!-- name 속성으로 카테고리를 지정해주어야 하나만 선택하게 된다 -->
+               <input type="radio" name="flavor" id="tuna" checked>
+               <label for="tuna"> 참지마요 </label><br>
+               <input type="radio" name="flavor" id="bibim">
+               <label for="bibim"> 전주비빔 </label><br>
+               <input type="radio" name="flavor" id="spam"> 
+               <label for="spam"> 스팸볶음 </label><br>
+               <input type="radio" name="flavor" id="bulgogi"> 
+               <label for="bulgogi"> 고추장불고기 </label><br>
+               <hr>
+               <input type="radio" name="size"> Family <br>
+               <input type="radio" name="size" checked> Large <br>
+               <input type="radio" name="size"> Regular <br>
+            </td>
+            <td>여러가지 중 하나만 선택할 수 있는 버튼</td>
+            <td>성별, 나이대 등 하나만 선택해야 하는 속성</td>
+        </tr>
+        <tr>
+            <td>type="checkbox"</td>
+            <td>
+                <input type="checkbox" name="swim" id="freestyle"> 
+                <label for="freestyle"> 자유형 </label><br>
+                <input type="checkbox" name="swim" id="frog">
+                <label for="frog"> 평영 </label><br>
+                <input type="checkbox" name="swim" id="backstroke">
+                <label for="backstroke"> 배영 </label><br>
+                <input type="checkbox" name="swim" id="butterfly">
+                <label for="butterfly"> 접영 </label><br>
+            </td>
+            <td>여러가지 항목 중 여러개를 선택할 수 있는 버튼</td>
+            <td>관심분야 등 여러개를 선택하야 하는 속성</td>
+        </tr>    
+            <tr>
+                <td>type="date"</td>
+                <td>
+                    <input type="date">
+                </td>
+                <td>날짜를 입력받는 칸</td>
+                <td>예약 등</td>
+            </tr>
+            <tr>
+                <td>type="color"</td>
+                <td><input type="color"></td>
+                <td>색상</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>&lt;textarea&gt;</td>
+                <td>
+                    <textarea cols="30" rows="10"></textarea>
+                </td>
+                <td>아주 긴 내용의 텍스트를 입력할 수 있다</td>
+                <td>긴 내용, 문의 내용등</td>
+            </tr>
+            <tr>
+                <td>&lt;select&gt;</td>
+                <td>
+                    <select>
+                        <option value="">Account</option>
+                        <option value="">Clerk</option>
+                        <option value="">CEO</option>
+                        <option value="">It Programmer</option>
+                    </select>
+                </td>
+                <td>사용자가 여러 옵션 중 하나를 선택할 수 있다</td>
+                <td>주로 외래키 컬럼</td>
+            </tr>
+    </table>
+
+    <h3># 사용자의 선택을 전송하기 위한 규칙</h3>
+
+    <ol>
+        <li>모든 데이터는 &lt;Form&gt; 단위로 전송되어야 한다</li>
+        <li>해당 form에 submit이 발생하면 입력된 모든 데이터를 전송한다</li>
+        <li>전송하고자 하는 데이터에는 반드시 name 속성이 있어야 한다</li>
+        <li>데이터를 전송할 때 name 속성이 키가 되고 value 속성이 값이 된다</li>
+        <li>
+            GET방식으로 전송하면 URL뒤에 데이터가 붙어서 전송된다 <br>
+            http://host:port/url?name1=value1&name2=value2
+        </li>
+        <li>그 외의 방식은 데이터가 주소에 노출되지 않는다</li>
+    </ol>
+
+    <h3># form 태그</h3>
+
+    <ul>
+        <li>action 속성 : submit이 발생했을 시 요청보낼 데이터를 전송할 URL</li>
+        <li>method 속성 : GET/POST/PUT/PATCH.. 등의 http 데이터 전송 방식 설정</li>
+    </ul>
+
+    <form action="" method="GET">
+       ID : <input name="user_id" type="text">
+       PASSWORD : <input name="user_password" type="password">
+        <input type="submit" value="SING IN">
+    </form>
+    <h4>선호하는 수영 경기</h4>
+    <form>
+        <!-- checkbox,radio 등 사용자가 값을 입력하지 못하고
+            선택하는 input에는 value 속성을 지정해 두어야
+            무엇을 선택했는지 알 수 있다-->
+        <input type="checkbox" name="swim" id="freestyle" value="freestyle"> 
+        <label for="freestyle"> 자유형 </label>
+        <input type="checkbox" name="swim" id="frog" value="frog">
+        <label for="frog"> 평영 </label>
+        <input type="checkbox" name="swim" id="backstroke" value="backstroke">
+        <label for="backstroke"> 배영 </label>
+        <input type="checkbox" name="swim" id="butterfly" value="butterfly">
+        <label for="butterfly"> 접영 </label>
+        <input type="submit" value="선택">
+    </form>
+
+
+    <h3># input 태그의 form 속성으로 어느 폼 소속인지 지정할 수 있다</h3>
+
+   
+
+    Age: <input type="text" form="info" name="age"> <br>
+    phone: <input type="text" form="info" name="phone"> <br>
+    <input type="submit" form="info" value="submit"> <br>
+
+    <form id="info"></form>
+
+    <h2>문제</h2>
+    <hr>
+
+   <table>
+        <tr>
+            <th colspan="3">
+                <h1 style="font-weight: normal;">River Cleanup Day</h1>
+                <h1>Volunteer Registration</h1><hr>
+            </th>
+          
+        </tr>
+        <tr>
+            <th rowspan="2" text-align="left">Full Name</th>
+            <td><input type="text" size="20"></td>
+            <td><input type="text" size="20"></td>
+
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td>Last Name</td>
+        </tr>
+        <tr>
+            <th rowspan="2" align="left">Contact No.</th>
+            <td><input type="text">-</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>Area Code</td>
+            <td>Phone Number</td>
+        </tr>
+        <tr>
+            <th rowspan="2" align="left">E-mail</th>
+            <td colspan="2"><input type="text" size="35" placeholder="ex: myname@example.com"></td>
+        </tr>
+        <tr>
+            <td>example@example.com</td>
+        </tr>
+        <tr>
+            <th rowspan="5" align="left">What time can<br>
+                you work? </th>
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="worktime" id="fulltime"> 
+                <label for="fulltime"> Any time </label>
+            </td> 
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="worktime" id="8am"> 
+                <label for="8am"> 8am-Noon </label>
+            </td> 
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="worktime" id="1-5pm"> 
+                <label for="1-5pm"> 1 - 5pm </label>
+            </td> 
+        </tr>
+        <tr>
+            <td>
+                <input type="radio" name="worktime" id="other"> 
+                <label for="other"> other </label>
+            </td> 
+        </tr>
+        <tr>
+            <th rowspan="7" align="left">Interested in:</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="Interested" id="Cleaning"> 
+                <label for="Cleaning"> Cleaning</label>
+            </td> 
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="Interested" id="Transportation"> 
+                <label for="Transportation"> Transportation </label>
+            </td> 
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="Interested" id="WhereverNeeded"> 
+                <label for="WhereverNeeded"> Wherever Needed </label>
+            </td> 
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="Interested" id="FoodService"> 
+                <label for="FoodService"> Food Service </label>
+            </td> 
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="Interested" id="FirstAid"> 
+                <label for="FirstAid"> First Aid </label>
+            </td> 
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="Interested" id="Other"> 
+                <label for="Other"> Other </label>
+            </td> 
+        </tr>
+        <tr>
+            <th>Comments></th>
+            <td colspan="2">
+                <textarea cols="50" rows="10"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center"><input type="submit" form="info" value="submit Form"></td>
+        </tr>
+   </table>
+
+
+
+
+</body>
+</html>
