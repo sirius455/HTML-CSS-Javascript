@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://siape.veta.naver.com/fxshow?su=SU10601&nrefreshx=0 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>NAVER</title>
+    <link rel="stylesheet" type="text/css" href="./common.min.css">
+    <style type="text/css">
+        /* DA Alternative - Contents Style */
+        #addiv{position:relative}
+        #addiv embed,#addiv object{z-index:20}
+        #addiv #da_alt{position:absolute;top:0;left:0;width:100%;height:100%;z-index:-1}
+        #addiv #da_alt.on{z-index:30}
+        #addiv #da_alt a{display:block;overflow:hidden;position:absolute;bottom:0;left:0;width:100%;height:100%}
+        #addiv #da_alt .guide{visibility:hidden;position:absolute;top:50%;left:50%;width:154px;height:58px;margin:-29px 0 0 -77px;background:url(https://ssl.pstatic.net/tveta/libs/res/www/common/info/da_access.png)}
+        #addiv #da_alt.on .guide{visibility:visible}
+    </style>
+<script type="text/javascript" src="./jquery-1.8.0.min.js(1).다운로드"></script><script type="text/javascript" src="./CSSPlugin.min.js.다운로드"></script><script type="text/javascript" src="./EasePack.min.js.다운로드"></script><script type="text/javascript" src="./TweenLite.min.js.다운로드"></script><script type="text/javascript" src="./rollingboard_imagerolling_332_flexunit.min.js.다운로드"></script></head>
+<body onload="lazyLoading()" marginwidth="0" marginheight="0">
+<div id="addiv"></div>
+<script type="text/template" id="basicPlayerTmpl">
+    <div class="image_rolling_area">
+        <a href="<<clickLog>>" class="image_rolling_link" target="_blank">
+            <div class="image_area" data-role="rollingWrapper">
+                <img src="<<imageSrc1>>" width="350" height="200" alt="<<altText>>">
+                <img src="<<imageSrc2>>" width="350" height="200">
+                <img src="<<imageSrc3>>" width="350" height="200">
+                <img src="<<imageSrc4>>" width="350" height="200">
+            </div>
+        </a>
+    </div>
+</script>
+<script type="text/javascript" src="./pc.veta.core.min.js(1).다운로드"></script>
+<script type="text/javascript">
+    try {
+        document.domain = "naver.com";
+    } catch (e) {}
+
+
+    function lazyLoading() {
+        var sImageserver = "https://ssl.pstatic.net/tveta/libs";
+
+        loadScripts([
+            sImageserver + "/external/js/jquery-1.8.0.min.js?20180423",
+            sImageserver + "/external/js/CSSPlugin.min.js?20180423",
+            sImageserver + "/external/js/EasePack.min.js?20180423",
+            sImageserver + "/external/js/TweenLite.min.js?20180423",
+            ":::ENV:::" === "dev" ?
+                sImageserver + "/assets/js/pc/main/rollingboard_imagerolling_332_flexunit.js?20180423"
+                : sImageserver + "/assets/js/pc/main/min/rollingboard_imagerolling_332_flexunit.min.js?20180423"
+
+        ], function() {
+            // ACK IMP
+            new Nimp(["https://siape.veta.naver.com/fxview?eu=EU10041892&calp=-&oj=ZagUyei1lShbRcXZdbLX%2BIdz9xrWJgTptvcqQHNyFHUHNNSf5qvG%2FQb3nOqX%2FaUnoWglYSU5fFnAEja9BmS4OCnrQCcyYBc7&ac=8354027&src=5165137&evtcd=P100&x_ti=1315&tb=&oid=&sid1=&sid2=&rk=4c32a4dfec98a67fb01a37a1a01bc233&eltts=mRQ5Mf6ryQlkRkwuk45eUg%3D%3D&brs=Y&&eid=V800"]).log(1);
+            initAd();
+        });
+    }
+
+    function loadScripts(urlArr, callback) {
+        var loadingCount = 0;
+        var resourceCnt = urlArr.length;
+
+        for(var i in urlArr) {
+            naver_corp_da.loadScript(urlArr[i], function() {
+                loadingCount++;
+                if(loadingCount === resourceCnt) callback();
+            });
+        }
+    }
+
+    function initAd() {
+        var info ={
+            cssSrc: "https://ssl.pstatic.net/tveta/libs/assets/css/pc/main/min/rollingboard_imagerolling_350.min.css?20180427",
+            adInfoImgSrc: "https://ssl.pstatic.net/tveta/libs/res/www/common/info/da_access.png",
+            basic: {
+                creativeData: {
+                    clickLog: "https://siape.veta.naver.com/fxclick?eu=EU10041892&calp=-&oj=ZagUyei1lShbRcXZdbLX%2BIdz9xrWJgTptvcqQHNyFHUHNNSf5qvG%2FQb3nOqX%2FaUnoWglYSU5fFnAEja9BmS4OCnrQCcyYBc7&ac=8354027&src=5165137&br=3537653&evtcd=P901&x_ti=1315&tb=&oid=&sid1=&sid2=&rk=4c32a4dfec98a67fb01a37a1a01bc233&eltts=mRQ5Mf6ryQlkRkwuk45eUg%3D%3D&lu=&brs=Y&",
+                    imageSrc1: "https://ssl.pstatic.net/tveta/libs/1343/1343164/e637103ff68e4061111f_20210702171451114.jpg",
+                    imageSrc2: "https://ssl.pstatic.net/tveta/libs/1343/1343164/06c59dbd43e64ed8dbd4_20210702171453745.jpg",
+                    imageSrc3: "https://ssl.pstatic.net/tveta/libs/1343/1343164/48ea485d204cd6ef3aaa_20210702171455899.jpg",
+                    imageSrc4: "https://ssl.pstatic.net/tveta/libs/1343/1343164/95360234626799ed401e_20210702171458322.jpg",
+                    altText: "[광고]라포르테 블랑 여의도. Your Life. Your Canvas. 1600.9186",
+                },
+                pattern: ["<<", ">>"]
+            },
+            noSupport: {
+                creativeData: {
+                    imageSrc: "https://ssl.pstatic.net/tveta/libs/1343/1343164/95360234626799ed401e_20210702171458322.jpg",
+                    clickLog: "https://siape.veta.naver.com/fxclick?eu=EU10041892&calp=-&oj=ZagUyei1lShbRcXZdbLX%2BIdz9xrWJgTptvcqQHNyFHUHNNSf5qvG%2FQb3nOqX%2FaUnoWglYSU5fFnAEja9BmS4OCnrQCcyYBc7&ac=8354027&src=5165137&br=3537653&evtcd=P901&x_ti=1315&tb=&oid=&sid1=&sid2=&rk=4c32a4dfec98a67fb01a37a1a01bc233&eltts=mRQ5Mf6ryQlkRkwuk45eUg%3D%3D&lu=&brs=Y&",
+                    altText: "[광고]라포르테 블랑 여의도. Your Life. Your Canvas. 1600.9186"
+                },
+                adHeight: 200,
+                adWidth: 350
+            },
+            newver: true
+        }
+
+        var imageRolling = new RollingBoardImageRolling(info);
+        imageRolling.initAd();
+
+       if (Da.$$("da_brand") !== null) {
+           new naver_corp_da.getClickedCoordinate({
+               adArea: Da.$$("da_brand")
+           }).activate();
+       }
+
+       new naver_corp_da.getClickedCoordinate({
+           adArea: Da.$("addiv"),
+           adType: "image",
+           parentArea: Da.$$("veta_branding")
+       }).activate();
+    }
+</script>
+
+<div style="display: none;"></div></body></html>

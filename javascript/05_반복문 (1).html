@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_반복문.html</title>
+    <style>
+
+    
+        
+        #gugudan {
+            display: grid;
+            border: solid 1px black;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+
+        #gugudan > *{
+            display: grid;
+            border: solid 1px black;
+            text-align: center;
+            background-color: skyblue;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h3># JavaScript에도 for문과 while문이 있다.</h3>
+
+    <div id="gugudan"> 
+ 
+    </div>
+<script>
+    for ( dan = 1; dan <= 9; ++dan) {
+        document.getElementById("gugudan").innerHTML += "<div>" + dan + "단" + "</div>"
+        for(gop = 1; gop <=9; ++gop)
+        document.getElementById("gugudan").innerHTML +=   dan + "x" + gop + "=" + dan*gop + "<br>" 
+} 
+</script>
+
+
+  
+  
+    
+</body>
+
+</html>

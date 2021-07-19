@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05_반복문.html</title>
+    <style>
+        #gugudan {
+            display: grid;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3># JavaScript에도 for문과 while문이 있다.</h3>
+
+    <button id="gugudan" >1</button>
+
+
+
+    <button onclick="getGuguDan()"> 구구단 버튼 </button>
+
+    <script>
+    
+    for(i = 0; i < 10; ++i) {
+        document.getElementById("gugudan").innerHTML += "<h3>HEllo!</h3>"
+    }
+
+    function getGuguDan() {
+    for (dan = 2; dan <= 9; ++dan) {
+
+    console.log(dan + "단  : ");
+
+    for ( gop = 1; gop <= 9; ++gop) {
+
+    console.log("%dx%d = ", dan, gop, dan * gop);  
+        } 
+    }
+}
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숙제_ex.html</title>
+    <style>
+        tr.worst{
+            color: red;
+        }
+
+        tr.nomal{
+            columns: black;
+        }
+    </style>
+</head>
+<body>
+    
+    <table id="failed" border="3">
+        <tr>
+            <th>번호</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th>평균</th>
+        </tr>
+    </table>
+
+    <script>
+        // function키워드로 생성하지 않는 함수는 맨 위에 있어야 한다
+        const getRandomScore = () => parseInt(Math.random() * 101);
+        var students = [];
+        var stu_avgs;
+
+        for (var i = 0; i < 100; ++i) {
+            students.push({
+            stu_num: 1 + i,
+            kor : getRandomScore(),     
+            eng : getRandomScore(),     
+            math : getRandomScore(),   
+            });
+        }
+
+        students.forEach((value, index, array) => {
+            array[index]['avg'] = parseInt((value.kor + value.eng + value.math) / 3.0);
+        });
+
+        console.log(students);
+        
+        const failed = students.filter((stu) => {
+            return stu.avg <= 70;
+        })
+
+        const worst_avg = failed.reduce(
+            (worst, stu) => worst < stu.avg ? worst : stu.avg, 
+            100
+        );
+        
+        console.log(worst_avg);
+
+        const falied_talbe_rows = failed.map((stu) => {
+        
+               return `<tr class= "${stu.avg == worst_avg ? 'worst' : 'normal'}">
+                        <td>${stu.stu_num}</td>
+                        <td>${stu.kor}</td>
+                        <td>${stu.eng}</td>
+                        <td>${stu.math}</td>
+                        <td>${stu.avg}</td>
+                        </tr>`;
+        });
+
+
+      //  for(i = 0; i < falied_talbe_rows.length; ++i){
+      //      document.getElementById("failed").innerHTML += falied_talbe_rows[i];
+      //  }
+
+     
+        document.getElementById("failed").innerHTML += 
+        falied_talbe_rows.reduce((accumulator, row) => accumulator + row, '');
+
+        console.log(failed);
+     
+    </script>
+
+</body>
+</html>

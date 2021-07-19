@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+}
+
+.content {
+    border: solid black 3px;
+    padding: 15px;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 1.8em;
+}
+
+.content > img:first-of-type {
+    width: 340px;
+    float: right;
+    margin-left: 15px;
+    margin-bottom: 0px;
+}
+
+.content > img:nth-of-type(2) {
+    width: 325px;
+    float: left;
+    margin-left: 0px;
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+
+.content >img + p::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+.container2 {
+    font-size: 35px;
+   
+}
+
+.container2 > div:first-child {
+    background-color: darkred;
+    padding: 50px;  
+    color: white;
+    width: 100%;
+    float: left;
+}
+
+.container2 > div:nth-child(2) {
+    background-color: darksalmon;  
+    color: white;
+    width: 20%;
+    height: 500px;
+    float: left;
+}
+
+.container2 > div:nth-child(3) {
+    background-color: darkslateblue;  
+    color: white;
+    width: 80%;
+    padding: 50px;
+    height: 400px;
+    float: left;
+}
+
+.container2 > div:nth-child(4) {
+    background-color: darkseagreen;  
+    color: white;
+    width: 80%;
+    height: 100px;
+    padding: 30px;
+    float: left;
+    padding-left: 50px;
+}
+
+.container2::after {
+    display: block;
+    clear: both;
+    content: "";
+}

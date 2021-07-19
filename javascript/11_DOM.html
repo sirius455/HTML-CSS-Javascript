@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_HTML Document Object Model</title>
+    <style>
+        .clock {
+            border: black 1px solid;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3># DOM (Document Object Model)</h3>
+
+    <ul>
+        <li>웹 브라우저는 html코드의 구조를 해석하여 document객체를 생성한다</li>
+        <li>자바스크립트를 통해 html문서의 모든 것을 수정할 수 있다/li>
+        <li>html문서의 css, 속성, 내용, 태크, 이벤트 ...등등 </li>
+        <li></li>
+    </ul>
+
+    <h3># 원하는 HTML요소를 찾는 메서드들</h3>
+
+    <ul>
+        <li>document.getElementByID(id)</li>
+        <li>document.getElementsByTagName(tag_name)</li>
+        <li>document.getElementsByClassName(class_name)</li>
+        <li>document.querySelector(css_selecotr)</li>
+        <li>document.querySelectorAll(css_Selector)</li>
+    </ul>
+
+    <h3># 찾은 HTML요소를 변경하는 방법</h3>
+
+    <ul>
+        <li>element.innerHTML : 요소의 태그 사이 내용에 접근</li>
+        <li>element.attribute : 요소의 속성에 접근1</li>
+        <li>element.setAttribute(name, value) : 요소의 속성에 접근2</li>
+        <li>element.style.property : 요소의 스타일 속성에 접근</li>
+    </ul>
+
+    <p id="" class="">babo</p>
+    <p id="" class="warning">babo</p>
+    <p id="" class="warning">babo</p>
+    <p id="" class="">babo</p>
+    <p id="" class="">babo</p>
+    <div id="" class="">babo</div>
+    <div id="" class="warning">babo</div>
+    <div id="" class="">babo</div>
+
+    <button id="warning_btn">경고 !</button>
+    <button id="warning_off">경고 끄기</button>
+
+    <hr>
+
+    <img src="../image/계란.jpeg"><br>
+    <button id="prev_img">Prev</button>
+    <button id="next_img">Next</button>
+
+    <script>
+        const main_image = document.querySelector('img');
+        const img_path_list = [
+            '../image/계란.jpeg',
+            '../image/모코코.png',
+            '../image/샥슈카.jpeg',
+        ]
+        let img_index = 0;
+
+        const prevImage = () => img_path_list[--img_index < 0 ?(img_index = img_path_list.length - 1) : img_index];
+        const nextImage = () => img_path_list[(img_index = ++img_index % img_path_list.length)];
+
+        document.querySelector("#prev_img").addEventListener(
+            'click',
+            (e) => {
+                main_image.src = prevImage();
+            }
+        )
+            
+        document.querySelector("#next_img").addEventListener(
+            'click',
+            (e) => {
+                main_image.src = nextImage();
+            }
+        )
+       
+
+        // document : 웹브라우저가 HTML문서를 해석하여 생성해놓을 웹페이지 구조
+        const warningBtn = document.getElementById('warning_btn')
+        const warning_Off_Btn = document.getElementById('warning_off')
+        //const warningNodes = document.getElementsByTagName('li');
+        const warningNodes = document.querySelectorAll('.warning')
+
+        warning_Off_Btn.addEventListener('click', (e) => {
+            offWarning();
+        });
+
+        warningBtn.addEventListener('click', (e) => {
+            makeWarning();
+        });
+
+        
+
+        function offWarning() {
+        //const nodes = document.getElementsByClassName('warning');
+        //const nodes = document.getElementsByTagName('li');
+        Array.from(warningNodes).forEach((node) => {
+           node.style.backgroundColor = 'white';
+           node.style.padding = '0px'
+           node.style.border = 'white';
+       })
+    }
+
+        function makeWarning() {
+        //noders는 Array가 아닌 Array 사촌(HTMLCollection)이다.
+        //(forEach가 구현되어 있지 않음)
+        //const nodes = document.getElementsByClassName('warning');
+        //const nodes = document.getElementsByTagName('li');
+        
+        // forEach를 사용하고 싶다면 Array.form()으로 배열로 변환할 수 있다.
+        Array.from(warningNodes).forEach((node) => {
+            node.style.backgroundColor = 'yellow';
+            node.style.padding = '15px'
+            node.style.border = 'dashed 3px black';
+        })
+     /*       
+       for (i = 0; i < nodes.length; ++i){
+           nodes[i].style.backgroundColor = 'yellow';
+           nodes[i].style.padding = '15px'
+           nodes[i].style.border = 'dashed 3px black';
+       }
+       */
+    }
+    </script>
+
+</body>
+</html>

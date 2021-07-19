@@ -1,0 +1,21 @@
+.material-icons {
+    color: red;
+    font-size: 30px;
+}
+
+.material-icons-sharp {
+    color: blue;
+    font-size: 30px;
+}
+
+.normal {
+    font-size: 25px;
+}
+
+.small {
+    font-size: 15px;
+}
+
+.big {
+    font-size: 35px;
+}

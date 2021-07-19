@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숙제.html</title>
+    <style>
+        #out > li:last-child {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <table id="out" ></table>
+
+    
+
+    <script>
+
+        // 국/영/수 점주를 가진 랜덤 학생 100명을 자바스크립트 오브젝트로 생성하고
+        // 1.map()을 이용해 모든 학생들의 평균 점수 배열을 생성
+        // 2. filter()을 이용해 평균 점수가 70점 이하인 학생들로 이루어진 배열을 생성
+        // 하여 html테이블에 출력(점수가 가장 낮은 학생은 빨간 글씨로 출력)
+           const StudentPoint = [];
+            for (i = 0; i < 100; i++){
+
+                if(i % 2 == 0) {
+                    StudentPoint.push({국어 : Math.floor(Math.random() * 100 + 1), 영어 : Math.floor(Math.random() * 99 + 1), 수학 : Math.floor(Math.random() * 99 + 1), 이름 : "김하나"}); 
+                } else if (i % 3 == 0){
+                    StudentPoint.push({국어 : Math.floor(Math.random() * 100 + 1), 영어 : Math.floor(Math.random() * 99 + 1), 수학 : Math.floor(Math.random() * 99 + 1), 이름 : "이하영"}); 
+                } else if (i % 5 == 0){
+                    StudentPoint.push({국어 : Math.floor(Math.random() * 100 + 1), 영어 : Math.floor(Math.random() * 99 + 1), 수학 : Math.floor(Math.random() * 99 + 1), 이름 : "김민수"}); 
+                } else if (i % 7 == 0){
+                    StudentPoint.push({국어 : Math.floor(Math.random() * 100 + 1), 영어 : Math.floor(Math.random() * 99 + 1), 수학 : Math.floor(Math.random() * 99 + 1), 이름 : "김진철"}); 
+                } else if (i % 11 == 0){
+                    StudentPoint.push({국어 : Math.floor(Math.random() * 100 + 1), 영어 : Math.floor(Math.random() * 99 + 1), 수학 : Math.floor(Math.random() * 99 + 1), 이름 : "이수련"}); 
+                } else {
+                    StudentPoint.push({국어 : Math.floor(Math.random() * 100 + 1), 영어 : Math.floor(Math.random() * 99 + 1), 수학 : Math.floor(Math.random() * 99 + 1), 이름 : "김진아"}); 
+                }
+
+            };
+
+           
+
+            StudentPoint.sort(function (a, b) {
+            return (b.국어 + b.수학 + b.영어) / 3 -  (a.국어 + a.수학 + a.영어) / 3
+            });
+
+            console.log(StudentPoint);
+
+            const map_result = StudentPoint.map(myMapFunction);
+            
+            console.log(map_result);
+
+            const filter_result = map_result.filter(value => value <= 70);
+
+
+            const map_result2 = filter_result.map(function (value) {
+            return `<li>${value}</li>`;
+            });
+
+            map_result2.forEach(function (value) {
+            document.getElementById("out").innerHTML += value;
+            });
+           
+           
+            
+           
+            function myMapFunction(value) {
+            return Math.floor((value.국어 + value.수학 + value.영어) / 3);
+            };
+
+
+            
+            
+    </script>
+</body>
+</html>
