@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>네이버 로그인</title>
+  <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <link rel="stylesheet" href="./id_search.css">
+  
+  
+</head>
+<body>
+  <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+  
+  <div class="id_search_box">
+      <div id="id_search1">
+          <div>아이디<span style="color: orangered;">찾기</span></div>
+          <div>
+              <div class="name_text"><b>이름</b><input type="text"></div>
+            </div>
+            <div>
+                <div class="phone_text"><b>전화번호</b>
+                 <input type="text" id="phone_text1" maxlength="11"></div>
+            </div>
+            <div>
+              <div><input type="submit" value="다음"></div>
+            </div>
+        </div>
+    </div>
+  
+    
+  <script>
+      $('.id_search_box').css('border','3px solid skyblue');
+      $('.id_search_box').css('width','400px');
+      $('.id_search_box').css('height','300px');
+      $('.id_search_box').css('margin','auto');
+  </script>
+  <script src="./popup.js"></script>
+  </body>
+</html>
